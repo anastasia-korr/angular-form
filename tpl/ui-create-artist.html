@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h3>New artist or artist group</h3>
+</div>
+<div class="modal-body">
+
+    <form class="form">
+
+        <div class="form-group" ng-if="!NewArtist.isGroup">
+            <label>First name</label>
+            <input class="form-control" ng-model="NewArtist.FirstName" required="Enter name here">
+        </div>
+
+        <div class="form-group" ng-if="!NewArtist.isGroup">
+            <label>Last name</label>
+            <input class="form-control" ng-model="NewArtist.LastName" required="Enter last name here">
+        </div>
+
+        <div class="form-group" ng-if="NewArtist.isGroup">
+            <label>Artist group name</label>
+            <input class="form-control" ng-model="NewArtist.GroupName" required="Enter the artist group name">
+        </div>
+
+        <div class="form-group">
+            <div class="checkbox">
+                <input type="checkbox" id="is-group" ng-model="NewArtist.isGroup">
+                <label for="is-group">This is an artist group</label>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-block btn-link" ng-click="save()">Save</button>
+</div>

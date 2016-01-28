@@ -1,0 +1,96 @@
+<!doctype html>
+<html ng-app="App">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Form</title>
+
+    <link rel="stylesheet" href="assets/components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/components/select2/select2.css">
+    <link rel="stylesheet" href="assets/components/select2/select2-bootstrap.css">
+    <link rel="stylesheet" href="assets/components/angular-ui-select/dist/select.min.css">
+    <link rel="stylesheet" href="assets/components/ng-tags-input/ng-tags-input.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+<body>
+    <div class="global-wrapper">
+        <div class="container container-sm" ng-controller="FormCtrl">
+            <div class="form" action="/">
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input class="form-control" ng-model="Title" type="text" required="required" placeholder="Please enter the title">
+                </div>
+
+                <ui-collapse-input ng-model="SubTitle"></ui-collapse-input>
+
+                <div class="form-group">
+                    <label>Artist</label>
+
+                    <ui-select multiple ng-disabled="disabled" ng-model="selectedArtists">
+                        <ui-select-match placeholder="Name of the artist">{$ $item.text $}</ui-select-match>
+                        <ui-select-choices repeat="artist in artists | filter:$select.search" refresh="refresh($select.search, 'artists')">
+                            <div ng-if="!artist.isNew" ng-bind-html="artist.text | highlight: $select.search"></div>
+
+                            <div ng-if="artist.isNew" class="create-new" ng-click="createNew($event, artist)">
+                                <i class="glyphicon glyphicon-plus"></i> Create new Artist
+                            </div>
+                        </ui-select-choices>
+
+                    </ui-select>
+                </div>
+
+                <div class="form-group">
+                    <label>Publishers</label>
+
+                    <ui-select multiple tagging="tagTransform" ng-disabled="disabled" ng-model="selectedPublishers">
+                        <ui-select-match placeholder="Name of the publisher">{$ $item.text $}</ui-select-match>
+                        <ui-select-choices repeat="publisher in publishers" refresh="refresh($select.search, 'publishers')">
+                            <div ng-if="publisher.isExist" class="value" ng-bind-html="publisher.text | highlight: $select.search"></div>
+
+                            <div ng-if="!publisher.isExist" class="value" ng-bind-html="publisher.text + ' <small>(new)</small>' | highlight: $select.search"></div>
+
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <ui-select ng-model="selectedCategory">
+                        <ui-select-match placeholder="Please choose a category">{$ $select.selected.name $}</ui-select-match>
+                        <ui-select-choices repeat="category in categories">
+                            <div ng-bind="category.name"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+
+                {$ NewArtist $}
+
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-default btn-lg" ng-click="Create()">Create this edition</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/components/jquery/dist/jquery.min.js"></script>
+    <script src="assets/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/components/select2/select2.min.js"></script>
+
+    <script src="assets/components/angular/angular.min.js"></script>
+    <script src="assets/components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="assets/components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="assets/components/angular-animate/angular-animate.min.js"></script>
+    <script src="assets/components/angular-ui-select/dist/select.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/FormCtrl.js"></script>
+    <script src="app/factories/Artists.js"></script>
+
+</body>
+</html>

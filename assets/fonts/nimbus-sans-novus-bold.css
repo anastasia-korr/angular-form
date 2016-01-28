@@ -1,0 +1,26 @@
+/*
+Font: 		Nimbus Sans Novus
+Style: 		Bold
+URL: 		http://www.youworkforthem.com/font/T1019/nimbus-sans-novus
+Foundry: 	URW++
+Foundry: 	http://www.youworkforthem.com/designer/204/urw
+Copyright:	Copyright 2010 URW++ Design & Development
+Version: 	1.4
+Created:	March 14, 2014
+License: 	http://www.youworkforthem.com/font-license 
+License: 	The WebFont(s) listed in this document must follow the YouWorkForThem
+			WebFont license rules. All other parties are strictly restricted 
+			from using the WebFonts(s) listed without a purchased license. 
+			All details above must always remain unaltered and visible in your CSS.
+*/
+
+@font-face {
+	font-family: 'NimbusSanNov-Bol';
+	src: url('nimbus-sans-novus-bold.eot');
+	src: url('nimbus-sans-novus-bold.eot?#iefix') format('embedded-opentype'),
+	     url('nimbus-sans-novus-bold.woff') format('woff'),
+	     url('nimbus-sans-novus-bold.ttf') format('truetype'),
+	     url('nimbus-sans-novus-bold.svg#ywftsvg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

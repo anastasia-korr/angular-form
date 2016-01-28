@@ -1,0 +1,23 @@
+@mixin placeholder {
+  &.placeholder { @content }
+  &:-moz-placeholder { @content }
+  &::-webkit-input-placeholder { @content }
+}
+
+@mixin transition ($trans) {
+  transition: $trans;
+  -moz-transition: $trans;
+  -webkit-transition: $trans;
+}
+
+@mixin translate($x, $y){
+  transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+}
+
+@mixin transition-delay ($delay){
+  transition-delay: $delay;
+  -moz-transition-delay: $delay;
+  -webkit-transition-delay: $delay;
+}

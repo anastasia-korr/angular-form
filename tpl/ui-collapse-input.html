@@ -1,0 +1,19 @@
+<div class="clearfix">
+    <div class="form-group collapsed" ng-class="{in: opened}">
+        <div class="placeholder" ng-click="expand()">
+            <i class="glyphicon glyphicon-plus"></i>
+            <span>Add subtitle</span>
+        </div>
+
+        <label>Subtitle
+            <span class="pull-right ">
+                <button class="btn btn-link remove-btn" ng-click="expand()">
+                    <i class="glyphicon glyphicon-minus"></i>
+                    Remove
+                </button>
+            </span>
+        </label>
+        <input class="form-control" ng-model="ngModel" type="text" required="required" placeholder="Please enter the subtitle">
+    </div>
+</div>
+
